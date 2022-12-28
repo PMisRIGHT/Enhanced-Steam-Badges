@@ -1,15 +1,14 @@
 # Enhanced Steam Badges
-&nbsp;&nbsp;&nbsp;&nbsp;就是一个瞎几把复制粘贴的Steam徽章浏览脚本
+&nbsp;&nbsp;&nbsp;&nbsp;就是一个瞎几把复制粘贴的Steam徽章展示脚本
 
-&nbsp;&nbsp;&nbsp;&nbsp;参(C)考(V)：https://greasyfork.org/zh-CN/scripts/30480-enhanced-steam-community-mod
+![usage](https://user-images.githubusercontent.com/45200086/209783115-8d20314e-d8c5-4f5e-a6d6-8321714f711e.gif)
 
 
-#### 说明一下哈
-&nbsp;&nbsp;&nbsp;&nbsp;代码力不行，只在Chrome内核的Tampermonkey上测试可用，不负责适配其他内核和猴
+#### 使用说明
 
 &nbsp;&nbsp;&nbsp;&nbsp;脚本用于在Steam徽章进度页面加入点击就可以展示所有徽章等级样式的按钮（SCE+标志）
 
-&nbsp;&nbsp;&nbsp;&nbsp;点击后等3-5秒嗷！
+&nbsp;&nbsp;&nbsp;&nbsp;点击后需等待3-5秒，待徽章展示后再点击其他按钮，否则会出现展示位置错误问题
 
 
 #### 版本说明（直接点击蓝字就可安装）
@@ -20,7 +19,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;注意：两个版本在安装的时候会互相覆盖，也不建议一起使用，没什么必要
 
 
-#### 版权说明
+#### 来源说明
 &nbsp;&nbsp;&nbsp;&nbsp;本脚本有一半的代码是复制粘贴来的，作者也没有认真研读原作者的授权范围
 
 &nbsp;&nbsp;&nbsp;&nbsp;本作者不保留任何权利，但是请不要商用
