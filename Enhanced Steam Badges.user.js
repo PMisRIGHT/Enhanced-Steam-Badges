@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Enhanced Steam Badges
 // @namespace    https://github.com/PMisRIGHT/Enhanced-Steam-Badges
-// @version      0.9
+// @version      0.99
 // @description  就是一个瞎几把复制粘贴的Steam徽章浏览脚本，参(C)考(V)：https://greasyfork.org/zh-CN/scripts/30480-enhanced-steam-community-mod
 // @author       Lw
 // @match        http*://steamcommunity.com/*/badges*
@@ -9,11 +9,7 @@
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
-/*说明一下哈
- *
- *代码力不行，只在Chrome内核的Tampermonkey上测试可用，不负责适配其他内核和猴
- *脚本用于在Steam徽章进度页面加入点击就可以展示所有徽章等级样式的按钮
- *点击后等3-5秒嗷！
+/*来源说明
  *
  *本脚本有一半的代码是复制粘贴来的，作者也没有认真研读原作者的授权范围
  *本作者不保留任何权利，但是请不要商用
@@ -75,6 +71,7 @@ function Main() {
                 }
             })
         };
+        thisElement.remove();
     }
 }
 
