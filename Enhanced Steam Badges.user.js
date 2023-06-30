@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Enhanced Steam Badges
-// @namespace    https://github.com/PMisRIGHT/Enhanced-Steam-Badges
-// @version      0.99
-// @description  就是一个瞎几把复制粘贴的Steam徽章浏览脚本，参(C)考(V)：https://greasyfork.org/zh-CN/scripts/30480-enhanced-steam-community-mod
+// @namespace    noop
+// @version      0.999
+// @description  就是一个瞎几把复制粘贴的Steam徽章浏览脚本，参(C)考(V)：https://greasyfork.org/scripts/954-enhanced-steam-community
 // @author       Lw
 // @match        http*://steamcommunity.com/*/badges*
 // @icon         https://steamcommunity.com/favicon.ico
@@ -17,8 +17,6 @@
  *原作者：Deparsoul：https://greasyfork.org/zh-CN/users/726-deparsoul
  *原始链接：https://greasyfork.org/scripts/954-enhanced-steam-community
  *
- *原作者：byzod：https://greasyfork.org/zh-CN/users/75960-byzod
- *原始链接：https://greasyfork.org/zh-CN/scripts/30480-enhanced-steam-community-mod
  *
  **/
 
@@ -48,25 +46,21 @@ function Main() {
         data = data.replace(/https?:\/\/(community\.edgecast\.steamstatic\.com|steamcommunity-a\.akamaihd\.net|cdn\.steamcommunity\.com)\//g, "//steamcommunity-a.akamaihd.net/");
         data = data.replace(/https?:\/\/(cdn\.edgecast\.steamstatic\.com|steamcdn-a\.akamaihd\.net|cdn\.akamai\.steamstatic\.com)\//g, "//steamcdn-a.akamaihd.net/");
 
-        // Byzod Add 2017-6-14
-        // 先去除又臭又长的下拉菜单选项……
-        data = data.replace(/<select[^]+<\/select>/,"");
-        // Byzod Add End 2017-6-14
-
         var sce = $J(data);
         $J(thisElement).parent().parent().siblings("div.badge_content").children("div.badge_progress_tasks").after('<div class="pin"></div>');
-        var badges = sce.find('h3:contains("BADGES"):not(:contains("FOIL"))').closest('.content-box');
+        var badges = sce.find('a:contains("Badges"):not(:contains("Foil"))').closest('.flex').next();
         putBadge(badges);
-        badges = sce.find('h3:contains("FOIL BADGES")').closest('.content-box');
+        badges = sce.find('a:contains("Foil Badges")').closest('.flex').next();
         putBadge(badges);
 
         function putBadge(badges) {
-            badges.find('.showcase-element-container.badge>.showcase-element').each(function () {
+            badges.find('.flex').each(function () {
                 var badge = $J(this);
                 if (badge.text()) {
-                    var img = badge.find('.element-image').attr('src');
-                    var text = badge.find('.element-text').text();
-                    var level = badge.find('.element-experience').html();
+                    //$J('.gamecard_badge_progress').remove();//no idea why not delete this line but must have some reason --Lw
+                    var img = badge.find('[src]').attr('src');
+                    var text = badge.find('.text-sm').text();
+                    var level = badge.find('.mt-auto').html();
                     $J(thisElement).parent().parent().siblings("div.badge_content").children("div.pin").before('<div class="badge_info" style="float:left;width:80px;text-align:center;padding:5px;min-height:150px;"><div class="badge_info_image"><img src="' + img + '"></div><div class="badge_info_description"><div class="badge_info_title">' + text + '</div><div>' + level + '</div></div><div style="clear: left;"></div></div>');
                 }
             })
