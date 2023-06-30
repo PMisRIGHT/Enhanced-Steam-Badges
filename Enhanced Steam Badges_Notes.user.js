@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Enhanced Steam Badges
 // @namespace    noop
-// @version      0.99
-// @description  就是一个瞎几把复制粘贴的Steam徽章浏览脚本，参(C)考(V)：https://greasyfork.org/zh-CN/scripts/30480-enhanced-steam-community-mod
+// @version      0.998
+// @description  就是一个瞎几把复制粘贴的Steam徽章浏览脚本，参(C)考(V)：https://greasyfork.org/scripts/954-enhanced-steam-community
 // @author       Lw
 // @match        http*://steamcommunity.com/*/badges*
 // @icon         https://steamcommunity.com/favicon.ico
@@ -17,8 +17,6 @@
  *原作者：Deparsoul：https://greasyfork.org/zh-CN/users/726-deparsoul
  *原始链接：https://greasyfork.org/scripts/954-enhanced-steam-community
  *
- *原作者：byzod：https://greasyfork.org/zh-CN/users/75960-byzod
- *原始链接：https://greasyfork.org/zh-CN/scripts/30480-enhanced-steam-community-mod
  *
  **/
 
@@ -28,6 +26,7 @@ unsafeWindow.exec=exec;
 unsafeWindow.addslashes=addslashes;
 
 function Main() {
+
 
     // 因为不想（不会）改原来的代码模块，定义一个变量接着点击的元素
     var thisElement;
@@ -58,37 +57,33 @@ function Main() {
         data = data.replace(/https?:\/\/(community\.edgecast\.steamstatic\.com|steamcommunity-a\.akamaihd\.net|cdn\.steamcommunity\.com)\//g, "//steamcommunity-a.akamaihd.net/");
         data = data.replace(/https?:\/\/(cdn\.edgecast\.steamstatic\.com|steamcdn-a\.akamaihd\.net|cdn\.akamai\.steamstatic\.com)\//g, "//steamcdn-a.akamaihd.net/");
 
-        // Byzod Add 2017-6-14
-        // 先去除又臭又长的下拉菜单选项……
-        data = data.replace(/<select[^]+<\/select>/,"");
-        // Byzod Add End 2017-6-14
-
         var sce = $J(data);
         // 不知道下面的函数怎么实现的放置顺序，所以放置一个锚点，让倒着顺序放的徽章能顺序正确
         $J(thisElement).parent().parent().siblings("div.badge_content").children("div.badge_progress_tasks").after('<div class="pin"></div>');
-        // 处理放置普通徽章
-        var badges = sce.find('h3:contains("BADGES"):not(:contains("FOIL"))').closest('.content-box');
+        // 处理放置普通徽章，使用jQuery选择器选择徽章元素组所在的元素
+        var badges = sce.find('a:contains("Badges"):not(:contains("Foil"))').closest('.flex').next();
         putBadge(badges);
-        // 处理放置闪亮徽章
-        badges = sce.find('h3:contains("FOIL BADGES")').closest('.content-box');
+        // 处理放置闪亮徽章，使用jQuery选择器选择徽章元素组所在的元素
+        badges = sce.find('a:contains("Foil Badges")').closest('.flex').next();
         putBadge(badges);
 
-        // 放徽章方法，不知道怎么实现的
+        // 放徽章方法
         function putBadge(badges) {
-            console.log(thisElement);//debug
-            badges.find('.showcase-element-container.badge>.showcase-element').each(function () {
+            console.log(thisElement+"?a?");//debug
+            badges.find('.flex').each(function () {
                 var badge = $J(this);
                 if (badge.text()) {
-                    //$J('.gamecard_badge_progress').remove();
-                    var img = badge.find('.element-image').attr('src');
-                    var text = badge.find('.element-text').text();
-                    var level = badge.find('.element-experience').html();
+                    //$J('.gamecard_badge_progress').remove();//no idea why not delete this line but must have some reason --Lw
+                    var img = badge.find('[src]').attr('src');
+                    var text = badge.find('.text-sm').text();
+                    var level = badge.find('.mt-auto').html();
                     $J(thisElement).parent().parent().siblings("div.badge_content").children("div.pin").before('<div class="badge_info" style="float:left;width:80px;text-align:center;padding:5px;min-height:150px;"><div class="badge_info_image"><img src="' + img + '"></div><div class="badge_info_description"><div class="badge_info_title">' + text + '</div><div>' + level + '</div></div><div style="clear: left;"></div></div>');
                 }
             })
         };
 
         // 下面一段是放置表情和背景的，已经改成可以加载的状态，如果想要可以直接取消注释，但是页面排版大概会崩吧
+        // 因SCE前端改版，下面这段暂时不能用，还懒得修理，等不懒了再修修吧 --Lw 2023-07-01
 
         //console.log("放表情");//debug
         //sce.find('h3:contains("EMOTICONS")').closest('.content-box').find('.showcase-element-container.emoticon>.showcase-element').each(function () {
