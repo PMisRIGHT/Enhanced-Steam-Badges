@@ -5,10 +5,11 @@
 
 
 #### 使用说明
-
 &nbsp;&nbsp;&nbsp;&nbsp;脚本用于在Steam徽章进度页面加入点击就可以展示所有徽章等级样式的按钮（SCE+标志）
 
 &nbsp;&nbsp;&nbsp;&nbsp;点击后需等待3-5秒，待徽章展示后再点击其他按钮，否则会出现展示位置错误问题
+
+&nbsp;&nbsp;&nbsp;&nbsp;已在Firefox+Tampermonkey上测试可用
 
 
 #### 版本说明（直接点击蓝字就可安装）
@@ -26,4 +27,13 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;原作者：[Deparsoul](https://greasyfork.org/zh-CN/users/726-deparsoul)&nbsp;&nbsp;&nbsp;&nbsp;原始链接：[Greasyfork: enhanced-steam-community](https://greasyfork.org/scripts/954-enhanced-steam-community)
 
-&nbsp;&nbsp;&nbsp;&nbsp;原作者：[byzod](https://greasyfork.org/zh-CN/users/75960-byzod)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原始链接：[Greasyfork: enhanced-steam-community-mod](https://greasyfork.org/zh-CN/scripts/30480-enhanced-steam-community-mod)
+
+#### 更新日志
+&nbsp;&nbsp;&nbsp;&nbsp;2023/07/01&nbsp;&nbsp;第一次更新&nbsp;&nbsp;&nbsp;&nbsp;发现SCE页面HTML部分更新，更新元素选择器以适配
+
+&nbsp;&nbsp;&nbsp;&nbsp;2022/12/28&nbsp;&nbsp;第零次更新&nbsp;&nbsp;&nbsp;&nbsp;发布
+
+#### 特别说明
+&nbsp;&nbsp;&nbsp;&nbsp;因SCE页面HTML部分更新，加载页面时不再有那个又臭又长的下拉菜单，故不再使用byzod的Mod部分，也就是说目前此脚本完全基于原作者Deparsoul的脚本修改得来，该特别说明段落将在下一次更新（如有）时删除。感谢byzod的贡献。
+
+&nbsp;&nbsp;&nbsp;&nbsp;[byzod](https://greasyfork.org/zh-CN/users/75960-byzod)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原始链接：[Greasyfork: enhanced-steam-community-mod](https://greasyfork.org/zh-CN/scripts/30480-enhanced-steam-community-mod)
