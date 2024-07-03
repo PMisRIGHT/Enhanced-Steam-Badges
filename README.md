@@ -1,4 +1,5 @@
 # Enhanced Steam Badges
+&nbsp;&nbsp;&nbsp;&nbsp;[English README](https://github.com/PMisRIGHT/Enhanced-Steam-Badges/blob/main/README_EN.md)
 &nbsp;&nbsp;&nbsp;&nbsp;就是一个瞎几把复制粘贴的Steam徽章展示脚本
 
 ![usage](https://user-images.githubusercontent.com/45200086/209783115-8d20314e-d8c5-4f5e-a6d6-8321714f711e.gif)
